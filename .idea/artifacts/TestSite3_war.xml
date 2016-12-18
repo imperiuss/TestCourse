@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TestSite3:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SpringCourseProject.war">
+      <element id="artifact" artifact-name="TestSite3:war exploded" />
+    </root>
+  </artifact>
+</component>
