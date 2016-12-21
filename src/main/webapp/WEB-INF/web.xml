@@ -6,6 +6,10 @@
 
 	<display-name>SpringDemo</display-name>
 
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
 	<!-- Spring MVC Configs -->
 
 	<!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
@@ -22,8 +26,7 @@
 	<!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<!--.jsp костыль для работы с html-->
-		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

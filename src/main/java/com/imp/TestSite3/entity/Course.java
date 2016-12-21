@@ -1,38 +1,37 @@
 package com.imp.TestSite3.entity;
 
-import java.util.List;
-import java.util.Map;
+import javax.persistence.*;
 
 /**
  *  Course entity
  */
+@Entity
+@Table(name = "course")
 public class Course {
 
-    private int courseID;
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
+    private int id;
 
+    @Column (name = "course_state")
     private String courseState;
 
+    @Column (name = "course_owner")
     private String courseOwner;
 
+    @Column (name = "course_category")
     private String courseCategory;
-
-    private List<User> subscribers;
-
-    private Map<User, Integer> courseUserGrade;
 
     public Course() {
     }
 
-    public Course(int courseID) {
-        this.courseID = courseID;
+    public int getId() {
+        return id;
     }
 
-    public int getCourseID() {
-        return courseID;
-    }
-
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCourseState() {
@@ -59,19 +58,13 @@ public class Course {
         this.courseCategory = courseCategory;
     }
 
-    public List<User> getSubscribers() {
-        return subscribers;
-    }
-
-    public void setSubscribers(List<User> subscribers) {
-        this.subscribers = subscribers;
-    }
-
-    public Map<User, Integer> getCourseUserGrade() {
-        return courseUserGrade;
-    }
-
-    public void setCourseUserGrade(Map<User, Integer> courseUserGrade) {
-        this.courseUserGrade = courseUserGrade;
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", courseState='" + courseState + '\'' +
+                ", courseOwner='" + courseOwner + '\'' +
+                ", courseCategory='" + courseCategory + '\'' +
+                '}';
     }
 }

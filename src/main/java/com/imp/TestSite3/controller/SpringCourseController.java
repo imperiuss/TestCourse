@@ -1,8 +1,13 @@
 package com.imp.TestSite3.controller;
 
+import com.imp.TestSite3.entity.Course;
+import com.imp.TestSite3.service.CourseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 
 /**
@@ -11,10 +16,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+@RequestMapping("/courses")
 public class SpringCourseController {
 
-      @RequestMapping (method = RequestMethod.GET)
-      public String showMainPage (){
-          return "03-login";
+
+    @Autowired
+    private CourseService courseService;
+
+      @RequestMapping
+      public String showMainPage (Model model){
+
+          List<Course> courses = courseService.getCourses();
+
+          model.addAttribute("courses", courses);
+
+        return "MainPage";
+    }
+
+      @RequestMapping ("/login")
+      public String showLoginPage (){
+          return "LoginPage";
       }
+
+
 }

@@ -1,26 +1,36 @@
 package com.imp.TestSite3.entity;
 
+import javax.persistence.*;
+
 /**
  * User class
  */
+@Entity
+@Table(name = "user")
 public class User {
 
-    private int userID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
+    @Column(name = "user_login")
     private String userLogin;
 
-    private String userEmail;
-
+    @Column(name = "user_pass")
     private String userPassword;
 
-    private String userRole; //нужно ли
+    @Column(name = "user_role")
+    private String userRole;
 
-    public int getUserID() {
-        return userID;
+    public User (){}
+
+    public int getId() {
+        return id;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserLogin() {
@@ -29,14 +39,6 @@ public class User {
 
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
     }
 
     public String getUserPassword() {
